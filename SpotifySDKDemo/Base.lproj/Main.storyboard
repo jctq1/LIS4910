@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,30 +22,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-dO-Ywl">
-                                <rect key="frame" x="92" y="318" width="191" height="30"/>
-                                <color key="backgroundColor" red="0.1803921568627451" green="0.74117647058823533" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1va-vw-N6v"/>
-                                    <constraint firstAttribute="width" constant="191" id="aIT-qp-YzB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="LOGIN WITH SPOTIFY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-dO-Ywl">
+                                <rect key="frame" x="126" y="269" width="128" height="128"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.74117647058823533" blue="0.34901960784313724" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Spotify">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfR-Ek-Cgz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikx-fh-gKI" userLabel="label1">
+                                <rect key="frame" x="142" y="528.5" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae6-Hn-3Pm">
+                                <rect key="frame" x="166" y="447.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="playStop:" destination="BYZ-38-t0r" eventType="valueChanged" id="1UZ-Ey-Rqa"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-hh-wC0">
+                                <rect key="frame" x="141" y="182" width="93" height="30"/>
+                                <state key="normal" title="Change Song"/>
+                                <connections>
+                                    <action selector="change:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMT-3o-2BL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Srb-cx-oTH"/>
-                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gUu-kl-mWT"/>
+                            <constraint firstItem="Ikx-fh-gKI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="126" id="Dsb-Ho-Qfh"/>
+                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="110" id="EYs-Mx-abb"/>
+                            <constraint firstItem="YQx-hh-wC0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="125" id="H23-oh-QU1"/>
+                            <constraint firstItem="Ae6-Hn-3Pm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="IuN-QJ-siR"/>
+                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="top" secondItem="YQx-hh-wC0" secondAttribute="bottom" constant="57" id="OQk-W9-pNZ"/>
+                            <constraint firstItem="Ae6-Hn-3Pm" firstAttribute="top" secondItem="WEf-dO-Ywl" secondAttribute="bottom" constant="50" id="ad2-OS-Ng1"/>
+                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="249.5" id="ik6-Jl-FF9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ikx-fh-gKI" secondAttribute="bottom" constant="117.5" id="mze-E7-xkh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeSong" destination="YQx-hh-wC0" id="acv-cy-Kgh"/>
+                        <outlet property="label1" destination="Ikx-fh-gKI" id="JZk-cF-fiB"/>
                         <outlet property="loginButton" destination="WEf-dO-Ywl" id="i7R-gq-iX9"/>
+                        <outlet property="playStopButton" destination="Ae6-Hn-3Pm" id="Tpp-kA-Vdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -52,4 +76,7 @@
             <point key="canvasLocation" x="-135.19999999999999" y="172.26386806596702"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Spotify" width="128" height="128"/>
+    </resources>
 </document>

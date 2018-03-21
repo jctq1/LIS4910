@@ -12,12 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var auth = SPTAuth()
+    @objc var auth = SPTAuth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        auth.redirectURL     = URL(string: "") // insert your redirect URL here
+        auth.redirectURL     = URL(string: "myshuffle://callback") // insert your redirect URL here
         auth.sessionUserDefaultsKey = "current session"
+        auth.clientID = "91eacb7a43c74feb8891e5afa6373377"
         
         return true
     }

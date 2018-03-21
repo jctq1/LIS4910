@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>PartyShuffle</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>putYourIdentifierHere</string>
+			<string>com.partyshuffle.LIS4910</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>putYourURLSchemeHere</string>
+				<string>myshuffle</string>
 			</array>
 		</dict>
 	</array>

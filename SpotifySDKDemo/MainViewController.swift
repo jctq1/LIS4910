@@ -10,6 +10,8 @@ import UIKit
 import SafariServices
 import AVFoundation
 
+let redirectUrl = "myshuffle://callback" // put your redirect URL here
+let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
 
 
 class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
@@ -57,10 +59,9 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     }
 
     @objc func setup () {
+        playStopButton.isOn = false
         // insert redirect your url and client ID below
-        let redirectURL = "myshuffle://callback" // put your redirect URL here
-        let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
-        auth.redirectURL     = URL(string: redirectURL)
+        auth.redirectURL     = URL(string: redirectUrl)
         auth.clientID        = clientID
         auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope]
         loginUrl = auth.spotifyWebAuthenticationURL()
@@ -114,6 +115,7 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
                 }
                 
             })
+        self.player?.setIsPlaying(false, callback: nil)
         
     }
     
@@ -129,22 +131,48 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     
     
     @IBOutlet weak var changeSong: UIButton!
+    @IBOutlet weak var textField: UITextField!
     
-    let arraysongs = ["5SxlUF7J8tyFIEF22EomeP","0TDLuuLlV54CkRRUOahJb4" ]
     var index = 0;
     
-    @IBAction func change(_ sender: Any) {
-        index = index + 1
-        let value = index % arraysongs.count
-        self.player?.playSpotifyURI("spotify:track:\(arraysongs[value])", startingWith: 0, startingWithPosition: 0, callback: { (error) in
+    
+    func changesong(id: String) {
+        self.player?.playSpotifyURI("spotify:track:\(id)", startingWith: 0, startingWithPosition: 0, callback: { (error) in
             if (error != nil) {
                 print("playing!")
             }
             
         })
+        self.player?.setIsPlaying(false, callback: nil)
     }
     
-
+    
+    @IBOutlet weak var song: UILabel!
+    
+    
+    @IBAction func change(_ sender: Any) {
+        let text = textField.text!
+        let querytipe = SPTSearchQueryType.queryTypeTrack
+        SPTSearch.perform(withQuery: text, queryType: querytipe, accessToken: session.accessToken) { (error, result) in
+            if (result != nil){
+                let results = result as! SPTListPage
+                let items = results.tracksForPlayback()
+                let casteditems = items! as! [SPTPartialTrack]
+                let firstitem = casteditems[0].identifier
+                self.changesong(id: firstitem!)
+                self.playStopButton.isOn = false
+                self.song.text = casteditems[0].name
+                let url = (casteditems[0].album.covers as! [SPTImage])[1].imageURL
+                self.image.image = UIImage(data: NSData(contentsOf: url!)! as Data)
+            }
+            else {
+                print(error.debugDescription)
+            }
+        }
+    }
+        
+    @IBOutlet weak var image: UIImageView!
+    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         

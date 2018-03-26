@@ -11,12 +11,117 @@ import SafariServices
 import AVFoundation
 
 
+class MusicCell: UITableViewCell {
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    var id: String = ""
+}
+
+class MusicPropierties {
+    let name : String
+    let photo : UIImage
+    let id : String
+    
+    init(photo: UIImage, name: String, id: String) {
+        self.name = name
+        self.photo = photo
+        self.id = id
+    }
+}
+
+var referencemusic : UITableViewController? = nil
+
+class MusicTable: UITableViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
+    public var songs = [MusicPropierties]()
+    let cellIdentifier = "MusicCell"
+    var lastID = ""
+    
+    @IBAction func playStop(_ sender: Any) {
+        let bla = self.tableView.indexPathForSelectedRow
+        let currentCell = self.tableView.cellForRow(at: bla!) as! MusicCell
+        let newID = currentCell.id
+        if (newID != lastID) {
+            self.changesong(id: currentCell.id)
+            self.player?.setIsPlaying(true, callback: nil)
+        } else {
+            if (self.player?.playbackState.isPlaying)! {
+                self.player?.setIsPlaying(false, callback: nil)
+            } else {
+                self.player?.setIsPlaying(true, callback: nil)
+            }
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.tableView.register(MusicCell.self, forCellReuseIdentifier: cellIdentifier)
+        referencemusic = self
+        clientID = (referencef?.auth.clientID)!
+        songs += referencef!.table
+        initializaPlayer(authSession: (referencef?.session)!)
+    }
+    
+    var clientID : String = ""
+    @objc var player: SPTAudioStreamingController?
+    
+    @objc func initializaPlayer(authSession:SPTSession){
+        if self.player == nil {
+            self.player = SPTAudioStreamingController.sharedInstance()
+            self.player!.playbackDelegate = self
+            self.player!.delegate = self
+            try! player?.start(withClientId: clientID)
+            self.player!.login(withAccessToken: authSession.accessToken)
+        }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songs.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MusicCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        let song = songs[indexPath.row]
+        cell.name.text = song.name
+        cell.photo.image = song.photo
+        cell.id = song.id
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
+        referencef?.changesong(id: self.songs[indexPath.row].id)
+        referencef?.player?.setIsPlaying(true, callback: nil)
+    }
+    
+    func changesong(id: String) {
+        self.player?.playSpotifyURI("spotify:track:\(id)", startingWith: 0, startingWithPosition: 0, callback: { (error) in
+            if (error != nil) {
+                print("playing!")
+            }
+            
+        })
+        self.player?.setIsPlaying(false, callback: nil)
+    }
+    
+}
+
+var referencef : FirstScreen? = nil
+
 class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     
   
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var songname: UITextField!
     @IBOutlet weak var photo: UIImageView!
+    
     @objc var auth = SPTAuth.defaultInstance()!
     @objc var session:SPTSession!
     @objc var player: SPTAudioStreamingController?
@@ -30,11 +135,13 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
             self.player!.delegate = self
             try! player?.start(withClientId: auth.clientID)
             self.player!.login(withAccessToken: authSession.accessToken)
-            
         }
         
     }
-
+    
+    @IBAction func changeSong(_ sender: Any) {
+    }
+    
     @objc func updateAfterFirstLogin(){
         let userDefaults = UserDefaults.standard
         
@@ -43,7 +150,7 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
             let sessionDataObj = sessionObj as! Data
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
             self.session = firstTimeSession
-            initializaPlayer(authSession: self.session)
+            //initializaPlayer(authSession: self.session)
             SPTUser.request(session.canonicalUsername, withAccessToken: session.accessToken, callback: { (error, result) in
                 if let profile = result as? SPTUser {
                     self.username.text = "Hey \(profile.displayName!)"
@@ -60,6 +167,8 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        referencef = self
+        self.auth = (referencemain?.auth)!
         NotificationCenter.default.addObserver(self, selector: #selector(FirstScreen.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
         // Do any additional setup after loading the view.
     }
@@ -87,24 +196,37 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
         self.player?.setIsPlaying(false, callback: nil)
     }
     
+    var table = [MusicPropierties]()
+    
     @IBAction func searchSong(_ sender: Any) {
         let text = songname.text!
+        
         let querytipe = SPTSearchQueryType.queryTypeTrack
         SPTSearch.perform(withQuery: text, queryType: querytipe, accessToken: session.accessToken) { (error, result) in
             if (result != nil){
                 let results = result as! SPTListPage
                 let items = results.tracksForPlayback()
                 let casteditems = items! as! [SPTPartialTrack]
-                let firstitem = casteditems[0].identifier
-                self.changesong(id: firstitem!)
+                for item in casteditems {
+                    let url = (item.album.covers as! [SPTImage])[1].imageURL
+                    let image = UIImage(data: NSData(contentsOf: url!)! as Data)
+                    let newcell = MusicPropierties(photo: image!, name: item.name, id: item.identifier)
+                    self.table += [newcell]
+                }
+                //let firstitem = casteditems[0].identifier
+                //self.changesong(id: firstitem!)
+               // self.songlist.dataSource = casteditems
                 //self.song.text = casteditems[0].name
-                let url = (casteditems[0].album.covers as! [SPTImage])[1].imageURL
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc : UITableViewController = self.storyboard?.instantiateViewController(withIdentifier: "MusicTable") as! UITableViewController
+                self.present(vc, animated: true, completion: nil)
                 print(casteditems[0].sharingURL!)
-                self.photo.image = UIImage(data: NSData(contentsOf: url!)! as Data)
+                
             }
             else {
                 print(error.debugDescription)
             }
+            //table.tableView.reloadData()
         }
     }
     

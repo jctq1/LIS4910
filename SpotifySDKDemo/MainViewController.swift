@@ -13,6 +13,7 @@ import AVFoundation
 let redirectUrl = "myshuffle://callback" // put your redirect URL here
 let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
 
+var referencemain : MainViewController? = nil
 
 class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
 
@@ -41,7 +42,7 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        referencemain = self
         label1.text = "Login Please"
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -81,10 +82,8 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     @IBOutlet weak var label1: UILabel!
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
+        //referencef?.auth = self.auth
    //     UIApplication.shared.open(loginUrl!, options: nil, completionHandler: nil)
-        let nextview = FirstScreen()
-        nextview.auth = self.auth
         if UIApplication.shared.openURL(loginUrl!) {
             
             if auth.canHandle(auth.redirectURL) {

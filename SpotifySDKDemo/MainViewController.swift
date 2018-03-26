@@ -35,8 +35,6 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var playStopButton: UISwitch!
-    
     //--------------------------------------
     // MARK: Functions
     //--------------------------------------
@@ -45,11 +43,23 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         super.viewDidLoad()
         
         label1.text = "Login Please"
-        playStopButton.isHidden = true
         
         // Do any additional setup after loading the view, typically from a nib.
         setup()
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
+        
+    }
+    
+    @objc func updateAfterFirstLogin(){
+        let userDefaults = UserDefaults.standard
+        
+        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
+            
+            let sessionDataObj = sessionObj as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+            
+            let vc = FirstScreen()
+            vc.session = firstTimeSession
+        }
         
     }
 
@@ -59,7 +69,6 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     }
 
     @objc func setup () {
-        playStopButton.isOn = false
         // insert redirect your url and client ID below
         auth.redirectURL     = URL(string: redirectUrl)
         auth.clientID        = clientID
@@ -68,116 +77,14 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         
     }
     
-    @objc func initializaPlayer(authSession:SPTSession){
-        if self.player == nil {
-            
-            
-            self.player = SPTAudioStreamingController.sharedInstance()
-            self.player!.playbackDelegate = self
-            self.player!.delegate = self
-            try! player?.start(withClientId: auth.clientID)
-            self.player!.login(withAccessToken: authSession.accessToken)
-            
-        }
-        
-    }
     
     @IBOutlet weak var label1: UILabel!
-    
-    @objc func updateAfterFirstLogin () {
-        
-        let userDefaults = UserDefaults.standard
-        
-        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
-            playStopButton.isHidden = false
-            
-            let sessionDataObj = sessionObj as! Data
-            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
-            
-            self.session = firstTimeSession
-            initializaPlayer(authSession: session)
-            self.loginButton.isHidden = true
-            self.label1.text = "Play/Stop"
-           // self.loadingLabel.isHidden = false
-            
-        } else {
-            self.label1.text = "Login Failed!"
-        }
-        
-    }
-    
-    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-        // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-       print("logged in")
-            self.player?.playSpotifyURI("spotify:track:0TDLuuLlV54CkRRUOahJb4", startingWith: 0, startingWithPosition: 0, callback: { (error) in
-                if (error != nil) {
-                    print("playing!")
-                }
-                
-            })
-        self.player?.setIsPlaying(false, callback: nil)
-        
-    }
-    
-    
-    @IBAction func playStop(_ sender: Any) {
-        if !self.playStopButton.isOn{
-            self.player?.setIsPlaying(false, callback: nil)
-        } else {
-            self.player?.setIsPlaying(true, callback: nil)
-        }
-        
-    }
-    
-    
-    @IBOutlet weak var changeSong: UIButton!
-    @IBOutlet weak var textField: UITextField!
-    
-    var index = 0;
-    
-    
-    func changesong(id: String) {
-        self.player?.playSpotifyURI("spotify:track:\(id)", startingWith: 0, startingWithPosition: 0, callback: { (error) in
-            if (error != nil) {
-                print("playing!")
-            }
-            
-        })
-        self.player?.setIsPlaying(false, callback: nil)
-    }
-    
-    
-    @IBOutlet weak var song: UILabel!
-    
-    
-    @IBAction func change(_ sender: Any) {
-        let text = textField.text!
-        let querytipe = SPTSearchQueryType.queryTypeTrack
-        SPTSearch.perform(withQuery: text, queryType: querytipe, accessToken: session.accessToken) { (error, result) in
-            if (result != nil){
-                let results = result as! SPTListPage
-                let items = results.tracksForPlayback()
-                let casteditems = items! as! [SPTPartialTrack]
-                let firstitem = casteditems[0].identifier
-                self.changesong(id: firstitem!)
-                self.playStopButton.isOn = false
-                self.song.text = casteditems[0].name
-                let url = (casteditems[0].album.covers as! [SPTImage])[1].imageURL
-                self.image.image = UIImage(data: NSData(contentsOf: url!)! as Data)
-            }
-            else {
-                print(error.debugDescription)
-            }
-        }
-    }
-        
-    @IBOutlet weak var image: UIImageView!
-    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
    //     UIApplication.shared.open(loginUrl!, options: nil, completionHandler: nil)
-        
+        let nextview = FirstScreen()
+        nextview.auth = self.auth
         if UIApplication.shared.openURL(loginUrl!) {
             
             if auth.canHandle(auth.redirectURL) {
@@ -185,8 +92,5 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             }
         }
     }
-    
-    
-
 }
 

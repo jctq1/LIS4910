@@ -14,7 +14,19 @@ import AVFoundation
 class MusicCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var playStopButton: UIButton!
     var id: String = ""
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        addGestureRecognizer(tap)
+    }
+    
+    @objc func tapAction() {
+        referencemusic?.playStopInt(newID: id)
+    }
 }
 
 class MusicPropierties {
@@ -29,19 +41,16 @@ class MusicPropierties {
     }
 }
 
-var referencemusic : UITableViewController? = nil
+var referencemusic : MusicTable? = nil
 
 class MusicTable: UITableViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     public var songs = [MusicPropierties]()
     let cellIdentifier = "MusicCell"
     var lastID = ""
     
-    @IBAction func playStop(_ sender: Any) {
-        let bla = self.tableView.indexPathForSelectedRow
-        let currentCell = self.tableView.cellForRow(at: bla!) as! MusicCell
-        let newID = currentCell.id
+    public func playStopInt(newID : String) {
         if (newID != lastID) {
-            self.changesong(id: currentCell.id)
+            self.changesong(id: newID)
             self.player?.setIsPlaying(true, callback: nil)
         } else {
             if (self.player?.playbackState.isPlaying)! {
@@ -50,7 +59,13 @@ class MusicTable: UITableViewController, SPTAudioStreamingPlaybackDelegate, SPTA
                 self.player?.setIsPlaying(true, callback: nil)
             }
         }
-        
+    }
+    
+    @IBAction func playStop(_ sender: Any) {
+        let bla = self.tableView.indexPathForSelectedRow
+        let currentCell = self.tableView.cellForRow(at: bla!) as! MusicCell
+        let newID = currentCell.id
+        playStopInt(newID: newID)
     }
     
     override func viewDidLoad() {
@@ -92,13 +107,9 @@ class MusicTable: UITableViewController, SPTAudioStreamingPlaybackDelegate, SPTA
         cell.name.text = song.name
         cell.photo.image = song.photo
         cell.id = song.id
+        cell.playStopButton.accessibilityLabel = String(describing: indexPath.row)
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
-        referencef?.changesong(id: self.songs[indexPath.row].id)
-        referencef?.player?.setIsPlaying(true, callback: nil)
     }
     
     func changesong(id: String) {

@@ -15,8 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc var auth = SPTAuth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UITableViewCell.appearance().backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        UITableView.appearance().backgroundColor = UIColor.white.withAlphaComponent(0)
+        UITextField.appearance().backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        let view = UIView()
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        UITableViewCell.appearance().selectedBackgroundView = view
         // Override point for customization after application launch.
-        auth.redirectURL     = URL(string: "myshuffle://callback") // insert your redirect URL here
+        auth.redirectURL = URL(string: "myshuffle://callback") // insert your redirect URL here
         auth.sessionUserDefaultsKey = "current session"
         auth.clientID = "91eacb7a43c74feb8891e5afa6373377"
         

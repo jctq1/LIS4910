@@ -15,7 +15,7 @@ let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
 
 var referencemain : MainViewController? = nil
 
-class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
+class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
 
     //--------------------------------------
     // MARK: Variables
@@ -43,7 +43,6 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     override func viewDidLoad() {
         super.viewDidLoad()
         referencemain = self
-        label1.text = "Login Please"
         
         // Do any additional setup after loading the view, typically from a nib.
         setup()

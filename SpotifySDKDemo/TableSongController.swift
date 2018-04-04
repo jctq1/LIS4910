@@ -13,6 +13,7 @@ class SongCell : UITableViewCell {
     @IBOutlet weak var album: UILabel!
     @IBOutlet weak var artist: UILabel!
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var cover: UIImageView!
     
 }
 

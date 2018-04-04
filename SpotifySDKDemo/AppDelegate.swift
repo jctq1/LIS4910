@@ -24,19 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         auth.redirectURL = URL(string: "myshuffle://callback") // insert your redirect URL here
         auth.sessionUserDefaultsKey = "current session"
-        auth.clientID = "91eacb7a43c74feb8891e5afa6373377"
         
         return true
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // called when user signs into spotify. Session data saved into user defaults, then notification posted to call updateAfterFirstLogin in ViewController.swift. Modeled off recommneded auth flow suggested by Spotify documentation
-
+        
         
         if auth.canHandle(auth.redirectURL) {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
-
+                
                 
                 if error != nil {
                     print("error!")
@@ -46,14 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(sessionData)
                 userDefaults.set(sessionData, forKey: "SpotifySession")
                 userDefaults.synchronize()
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "login"), object: nil)
             })
             return true
         }
         
         return false
-        
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -15,6 +15,8 @@
 		23105D1E206DBB07006052C4 /* SortedSongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23105D1D206DBB07006052C4 /* SortedSongTableViewController.swift */; };
 		23105D20206DC18B006052C4 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23105D1F206DC18B006052C4 /* GenericViewController.swift */; };
 		232761C82068AE7C006D3155 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232761C72068AE7C006D3155 /* FirstScreen.swift */; };
+		23CED15A20746E63007BF106 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CED15920746E63007BF106 /* TabViewController.swift */; };
+		23CED15C2074710F007BF106 /* HomeGenericViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CED15B2074710F007BF106 /* HomeGenericViewViewController.swift */; };
 		EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34844C1E55D5BA007F7453 /* AppDelegate.swift */; };
 		EF34844F1E55D5BA007F7453 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34844E1E55D5BA007F7453 /* MainViewController.swift */; };
 		EF3484521E55D5BA007F7453 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3484501E55D5BA007F7453 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		23105D1D206DBB07006052C4 /* SortedSongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSongTableViewController.swift; sourceTree = "<group>"; };
 		23105D1F206DC18B006052C4 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		232761C72068AE7C006D3155 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		23CED15920746E63007BF106 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		23CED15B2074710F007BF106 /* HomeGenericViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGenericViewViewController.swift; sourceTree = "<group>"; };
 		EF3484491E55D5BA007F7453 /* SpotifySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF34844C1E55D5BA007F7453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF34844E1E55D5BA007F7453 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				23105D1B206DBADA006052C4 /* CategoryTableViewController.swift */,
 				23105D1D206DBB07006052C4 /* SortedSongTableViewController.swift */,
 				23105D1F206DC18B006052C4 /* GenericViewController.swift */,
+				23CED15920746E63007BF106 /* TabViewController.swift */,
+				23CED15B2074710F007BF106 /* HomeGenericViewViewController.swift */,
 			);
 			path = SpotifySDKDemo;
 			sourceTree = "<group>";
@@ -308,10 +314,12 @@
 			files = (
 				EF34844F1E55D5BA007F7453 /* MainViewController.swift in Sources */,
 				23105D1A206D8CFB006052C4 /* AddTableViewController.swift in Sources */,
+				23CED15C2074710F007BF106 /* HomeGenericViewViewController.swift in Sources */,
 				23105D20206DC18B006052C4 /* GenericViewController.swift in Sources */,
 				23105D1E206DBB07006052C4 /* SortedSongTableViewController.swift in Sources */,
 				23105D16206D8580006052C4 /* PartyTableController.swift in Sources */,
 				23105D1C206DBADA006052C4 /* CategoryTableViewController.swift in Sources */,
+				23CED15A20746E63007BF106 /* TabViewController.swift in Sources */,
 				23105D14206D8306006052C4 /* TableTextController.swift in Sources */,
 				EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */,
 				232761C82068AE7C006D3155 /* FirstScreen.swift in Sources */,

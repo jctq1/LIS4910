@@ -180,7 +180,7 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
         super.viewDidLoad()
         referencef = self
         self.auth = (referencemain?.auth)!
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstScreen.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
         // Do any additional setup after loading the view.
     }
 

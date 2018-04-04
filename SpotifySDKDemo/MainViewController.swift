@@ -43,9 +43,10 @@ class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         referencemain = self
-        
-        // Do any additional setup after loading the view, typically from a nib.
         setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "login"), object: nil)
+        // Do any additional setup after loading the view, typically from a nib.
+        
         
     }
     
@@ -57,8 +58,8 @@ class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelega
             let sessionDataObj = sessionObj as! Data
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
             
-            let vc = FirstScreen()
-            vc.session = firstTimeSession
+            session = firstTimeSession
+            performSegue(withIdentifier: "normalsegue", sender: nil)
         }
         
     }
@@ -86,6 +87,7 @@ class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelega
         if UIApplication.shared.openURL(loginUrl!) {
             
             if auth.canHandle(auth.redirectURL) {
+                let one = 1
                 // To do - build in error handling
             }
         }

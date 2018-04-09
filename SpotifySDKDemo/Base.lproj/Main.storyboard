@@ -890,7 +890,7 @@
         <!--Add Songs-->
         <scene sceneID="Fcm-DX-V5u">
             <objects>
-                <viewController id="Dmc-ur-h4o" customClass="GenericViewController" customModule="SpotifySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dmc-ur-h4o" customClass="SearchGenericViewController" customModule="SpotifySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qab-BU-V7l"/>
                         <viewControllerLayoutGuide type="bottom" id="8pL-cg-UAJ"/>
@@ -934,6 +934,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Songs" image="add" selectedImage="add" id="5ka-9g-gns"/>
+                    <connections>
+                        <outlet property="textField" destination="eia-kx-C79" id="qXv-k1-rq5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACu-8N-KSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

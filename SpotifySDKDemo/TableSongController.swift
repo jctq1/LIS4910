@@ -8,6 +8,24 @@
 
 import UIKit
 
+class MusicData{
+    let name : String
+    let album : String
+    let artist : String
+    let type : String
+    let photo : UIImage
+    let id : String
+    
+    init(photo: UIImage, name: String, album: String, artist: String, type: String, id: String) {
+        self.name = name
+        self.photo = photo
+        self.id = id
+        self.album = album
+        self.artist = artist
+        self.type = type
+    }
+}
+
 class SongCell : UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var album: UILabel!
@@ -17,10 +35,15 @@ class SongCell : UITableViewCell {
     
 }
 
+var referencesearchsongs : TableSongController? = nil
+
 class TableSongController: UITableViewController {
+    
+    var list = [MusicData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        referencesearchsongs = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,21 +66,26 @@ class TableSongController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return list.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songcell", for: indexPath) as! SongCell
-
-        cell.album.text = "Shelter"
-        cell.artist.text = "Porter Robinson & Madeon"
-        cell.name.text = "Shelter"
-        cell.type.text = "Song"
+        let row = indexPath.row
+        cell.album.text = list[row].album
+        cell.artist.text = list[row].artist
+        cell.name.text = list[row].name
+        cell.type.text = list[row].type
+        cell.cover.image = list[row].photo
 
         return cell
     }
     
+    func updateData(list: [MusicData]) {
+        self.list = list
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.

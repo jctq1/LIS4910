@@ -14,11 +14,15 @@ class PartyCell : UITableViewCell {
     
 }
 
+var referencepartytable : PartyTableController? = nil
+
 class PartyTableController: UITableViewController {
+    
+    var parties = [Party]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        referencepartytable = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,17 +44,23 @@ class PartyTableController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return parties.count
     }
 
     let cellIdentifier = "partycell"
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! PartyCell
 
-        cell.cod.text = "AB34D"
-        cell.party.text = "Spring Party"
+        cell.cod.text = parties[indexPath.row].id
+        cell.party.text = parties[indexPath.row].name
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Player") as! PlayerViewController
+        vc.party = parties[indexPath.row]
+        present(vc, animated: true, completion: nil)
     }
     
 

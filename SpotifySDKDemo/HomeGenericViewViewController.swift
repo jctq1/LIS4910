@@ -15,7 +15,7 @@ class HomeGenericViewViewController: GenericViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SPTUser.request(referencemain?.session.canonicalUsername, withAccessToken: referencemain?.session.accessToken, callback: { (error, result) in
+        SPTUser.request(session!.canonicalUsername, withAccessToken: session?.accessToken, callback: { (error, result) in
             if let profile = result as? SPTUser {
                 self.username.text = "Hey \(profile.canonicalUserName!)"
             } else {

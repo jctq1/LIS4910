@@ -10,18 +10,29 @@ import UIKit
 
 class AddCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var added: UIImageView!
 }
 
+var referenceadd : AddTableViewController? = nil
+
 class AddTableViewController: UITableViewController {
+    
+    var parties = [Party]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        referenceadd = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func reloadData(parties : [Party]){
+        self.parties = parties
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,16 +49,38 @@ class AddTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return parties.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addcell", for: indexPath) as! AddCell
 
-        cell.name.text = "Spring Party"
+        cell.name.text = parties[indexPath.row].name
+        if let id = songtoadd {
+            if (Song.isOnParty(id: id, party: parties[indexPath.row])){
+                cell.added.image = #imageLiteral(resourceName: "checked-checkbox")
+            }
+            else {
+                cell.added.image = #imageLiteral(resourceName: "more_format_indent_users_plus-512")
+            }
+        }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = parties[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addcell", for: indexPath) as! AddCell
+        if (cell.added.image == #imageLiteral(resourceName: "more_format_indent_users_plus-512")){
+            Song.vote(song: songtoadd!, party: row.id, userid: (session?.canonicalUsername)!, vote: 1)
+            cell.added.image = #imageLiteral(resourceName: "checked-checkbox")
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        }
+        else {
+            // DO NOTHING
+        }
+        
     }
     
 

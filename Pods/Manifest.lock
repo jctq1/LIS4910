@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.7.1)
+  - Alamofire-Synchronous (4.0.0):
+    - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
+  - AlamoRecord (1.1.1):
+    - AlamofireObjectMapper (~> 5.0)
+  - IQKeyboardManagerSwift (5.0.8)
+  - ObjectMapper (3.1.0)
+  - Spartan (1.1.1):
+    - AlamoRecord (~> 1.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Alamofire-Synchronous (~> 4.0)
+  - AlamofireObjectMapper (~> 5.0)
+  - IQKeyboardManagerSwift
+  - Spartan
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Alamofire-Synchronous
+    - AlamofireObjectMapper
+    - AlamoRecord
+    - IQKeyboardManagerSwift
+    - ObjectMapper
+    - Spartan
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Alamofire-Synchronous: eedf1e6e961c3795a63c74990b3f7d9fbfac7e50
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  AlamoRecord: 78653b9a5da21ab5bb723167e0f552994df85d30
+  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Spartan: 0e2518f937e590b0dff19350db133110d676ddf0
+
+PODFILE CHECKSUM: 303349722bdca8191f6ac2b185a71e260608ce3f
+
+COCOAPODS: 1.5.0

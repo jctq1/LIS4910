@@ -26,7 +26,7 @@ class SearchGenericViewController: GenericViewController, UITextFieldDelegate {
         
         let text = textField.text!
         let querytipe = SPTSearchQueryType.queryTypeTrack
-        SPTSearch.perform(withQuery: text, queryType: querytipe, accessToken: referencemain?.session.accessToken) { (error, result) in
+        SPTSearch.perform(withQuery: text, queryType: querytipe, accessToken: session?.accessToken) { (error, result) in
             if (result != nil){
                 var list = [MusicData]()
                 let results = result as! SPTListPage

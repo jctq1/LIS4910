@@ -33,11 +33,16 @@ class MusicPropierties {
     let name : String
     let photo : UIImage
     let id : String
-    
-    init(photo: UIImage, name: String, id: String) {
+    let votes : Int
+    let duration : Int
+    var played = false
+    init(photo: UIImage, name: String, id: String, votes: Int, duration: Int, played: Bool) {
         self.name = name
         self.photo = photo
         self.id = id
+        self.votes = votes
+        self.duration = duration
+        self.played = played
     }
 }
 
@@ -209,7 +214,7 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
     
     var table = [MusicPropierties]()
     
-    @IBAction func searchSong(_ sender: Any) {
+    /*@IBAction func searchSong(_ sender: Any) {
         let text = songname.text!
         
         let querytipe = SPTSearchQueryType.queryTypeTrack
@@ -221,7 +226,7 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
                 for item in casteditems {
                     let url = (item.album.covers as! [SPTImage])[1].imageURL
                     let image = UIImage(data: NSData(contentsOf: url!)! as Data)
-                    let newcell = MusicPropierties(photo: image!, name: item.name, id: item.identifier)
+                    let newcell = MusicPropierties(photo: image!, name: item.name, id: item.identifier, votes: 0)
                     self.table += [newcell]
                 }
                 //let firstitem = casteditems[0].identifier
@@ -239,7 +244,7 @@ class FirstScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudio
             }
             //table.tableView.reloadData()
         }
-    }
+    }*/
     
     
     /*

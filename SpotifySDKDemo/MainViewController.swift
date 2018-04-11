@@ -15,6 +15,8 @@ let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
 
 var referencemain : MainViewController? = nil
 
+var session : SPTSession? = nil
+
 class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
 
     //--------------------------------------
@@ -23,7 +25,7 @@ class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelega
     
     // Variables
     @objc var auth = SPTAuth.defaultInstance()!
-    @objc var session:SPTSession!
+    //@objc var session:SPTSession!
     
     // Initialzed in either updateAfterFirstLogin: (if first time login) or in viewDidLoad (when there is a check for a session object in User Defaults
     @objc var player: SPTAudioStreamingController?

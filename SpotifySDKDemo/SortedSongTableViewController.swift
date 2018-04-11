@@ -8,17 +8,60 @@
 
 import UIKit
 
-class SortedSongCell : UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var balancevotes: UILabel!
+class upvote: UIImageView {
     
 }
 
+class downvote: UIImageView {
+    
+}
+
+class SortedSongCell : UITableViewCell {
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var balancevotes: UILabel!
+    @IBOutlet weak var upvote: UIImageView!
+    @IBOutlet weak var downvote: UIImageView!
+    @IBOutlet weak var downvotecon: UIView!
+    @IBOutlet weak var upvotecon: UIView!
+    
+    @IBOutlet weak var cover: UIImageView!
+    
+    var id : String? = nil
+    var duration: Int? = nil
+    var enabled = true
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let first = touches.first!
+        if (first.view == upvotecon && downvote.image != #imageLiteral(resourceName: "Vote_down_grey") && enabled){
+            Song.vote(song: id!, party: (referenceplayer?.party?.id)!, userid: (session?.canonicalUsername)!, vote: 1)
+            balancevotes.text = String(Song.getVotes(idparty: (referenceplayer?.party?.id)!, idsong: id!))
+            downvote.image = #imageLiteral(resourceName: "Vote_down_grey")
+            upvote.image = #imageLiteral(resourceName: "Vote_up")
+        }
+        else if (first.view == downvotecon && upvote.image != #imageLiteral(resourceName: "Vote_up_grey") && enabled) {
+            Song.vote(song: id!, party: (referenceplayer?.party?.id)!, userid: (session?.canonicalUsername)!, vote: 0)
+            balancevotes.text = String(Song.getVotes(idparty: (referenceplayer?.party?.id)!, idsong: id!))
+            upvote.image = #imageLiteral(resourceName: "Vote_up_grey")
+            downvote.image = #imageLiteral(resourceName: "Vote_down")
+        }
+        else if (first.view != downvotecon && first.view != upvotecon && enabled){
+            referenceplayer?.changesong(id: id!, duration: duration!)
+            referenceplayer?.coverbig.image = cover.image
+            referenceplayer?.song.text = title.text
+        }
+        self.reloadInputViews()
+    }
+}
+
+var sortedsongs : SortedSongTableViewController? = nil
+
 class SortedSongTableViewController: UITableViewController {
 
+    var songs = [MusicPropierties]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sortedsongs = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,20 +83,32 @@ class SortedSongTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return songs.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sortedsongcell", for: indexPath) as! SortedSongCell
 
-        cell.balancevotes.text = "10"
-        cell.title.text = "Shelter by Porter Robinson & Madeon"
-
+        let res = Song.itVoted(songid: songs[indexPath.row].id, partyid: (referenceplayer?.party?.id)!, id: (session?.canonicalUsername)!)
+        if (res == 1){
+            cell.downvote.image = #imageLiteral(resourceName: "Vote_down_grey")
+        }
+        else  if (res == 0) {
+            cell.upvote.image = #imageLiteral(resourceName: "Vote_up_grey")
+        }
+        cell.balancevotes.text = String(describing: songs[indexPath.row].votes)
+        cell.title.text = songs[indexPath.row].name
+        cell.id = songs[indexPath.row].id
+        cell.duration = songs[indexPath.row].duration
+        cell.cover.image = songs[indexPath.row].photo
+        if (songs[indexPath.row].played){
+            cell.enabled = false
+            cell.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
+        }
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

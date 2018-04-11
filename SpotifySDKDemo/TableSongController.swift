@@ -36,6 +36,7 @@ class SongCell : UITableViewCell {
 }
 
 var referencesearchsongs : TableSongController? = nil
+var songtoadd : String? = nil
 
 class TableSongController: UITableViewController {
     
@@ -85,6 +86,14 @@ class TableSongController: UITableViewController {
     func updateData(list: [MusicData]) {
         self.list = list
         self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let song = list[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ShowSong") as! ShowSongViewController
+        vc.song = song
+        songtoadd = song.id
+        present(vc, animated: true, completion: nil)
     }
 
     /*

@@ -8,8 +8,11 @@
 
 import UIKit
 
+var referencesongcontroller : GenericViewController? = nil
+
 class GenericViewController: UIViewController {
     let gradient = CAGradientLayer()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,7 @@ class GenericViewController: UIViewController {
         gradient.locations = [0.25, 0.75]
         self.view.layer.insertSublayer(gradient, at: 0)
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {

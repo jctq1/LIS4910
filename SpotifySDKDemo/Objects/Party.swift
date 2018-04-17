@@ -90,7 +90,7 @@ class Party {
             }
             var stringf : String = string
             stringf.append(",\(user)")
-            let query = "UPDATE party SET subscribed='\(stringf) WHERE id='\(id)';"
+            let query = "UPDATE party SET subscribed='\(stringf)' WHERE id='\(id)';"
             let res = SQLInteract.ExecuteModification(query: query)
             return res
         }
@@ -114,6 +114,26 @@ class Party {
     
     class func dropeParty (party: Party) -> StatusMsg {
         let query = "DELETE FROM party WHERE id='\(party.id)';"
+        let res = SQLInteract.ExecuteModification(query: query)
+        return res
+    }
+    
+    class func getPlayingSong (party: Party, songs: [MusicPropierties]) -> MusicPropierties? {
+        let query = "SELECT * FROM playing WHERE party='\(party.id)';"
+        let res = SQLInteract.ExecuteSelect(query: query)
+        if let row = res.0.first {
+            let id = row["song"] as! String
+            let filtered = songs.filter{$0.id == id}
+            return filtered.first
+        }
+        else {
+            let filtered = songs.filter{!$0.played}
+            return filtered.first
+        }
+    }
+    
+    class func setPlayingSong (party: Party, song: String) -> StatusMsg {
+        let query = "REPLACE INTO playing VALUES('\(party.id)','\(song)');"
         let res = SQLInteract.ExecuteModification(query: query)
         return res
     }

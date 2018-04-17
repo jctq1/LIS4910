@@ -44,7 +44,7 @@ class SortedSongCell : UITableViewCell {
             upvote.image = #imageLiteral(resourceName: "Vote_up_grey")
             downvote.image = #imageLiteral(resourceName: "Vote_down")
         }
-        else if (first.view != downvotecon && first.view != upvotecon && enabled){
+        else if (first.view != downvotecon && first.view != upvotecon && enabled && (referenceplayer?.isowner)!){
             referenceplayer?.changesong(id: id!, duration: duration!)
             referenceplayer?.coverbig.image = cover.image
             referenceplayer?.song.text = title.text
@@ -93,9 +93,15 @@ class SortedSongTableViewController: UITableViewController {
         let res = Song.itVoted(songid: songs[indexPath.row].id, partyid: (referenceplayer?.party?.id)!, id: (session?.canonicalUsername)!)
         if (res == 1){
             cell.downvote.image = #imageLiteral(resourceName: "Vote_down_grey")
+            cell.upvote.image = #imageLiteral(resourceName: "Vote_up")
         }
         else  if (res == 0) {
             cell.upvote.image = #imageLiteral(resourceName: "Vote_up_grey")
+            cell.downvote.image = #imageLiteral(resourceName: "Vote_down")
+        }
+        else {
+            cell.upvote.image = #imageLiteral(resourceName: "Vote_up")
+            cell.downvote.image = #imageLiteral(resourceName: "Vote_down")
         }
         cell.balancevotes.text = String(describing: songs[indexPath.row].votes)
         cell.title.text = songs[indexPath.row].name
@@ -104,7 +110,7 @@ class SortedSongTableViewController: UITableViewController {
         cell.cover.image = songs[indexPath.row].photo
         if (songs[indexPath.row].played){
             cell.enabled = false
-            cell.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
+            cell.backgroundColor = UIColor.gray.withAlphaComponent(0)
         }
         return cell
     }

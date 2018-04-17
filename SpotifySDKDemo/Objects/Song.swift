@@ -42,7 +42,7 @@ class Song {
     }
     
     class func returnSongs(party: Party) -> [Song] {
-        let query = "SELECT DISTINCT song,party,played FROM songs WHERE party='\(party.id)' ORDER BY played,vote DESC;"
+        let query = "SELECT song,party,played FROM songs WHERE party='\(party.id)' GROUP BY (song) ORDER BY vote DESC;"
         let res = SQLInteract.ExecuteSelect(query: query)
         return parseSongs(res: res.0)
     }
@@ -108,8 +108,10 @@ class Song {
     }
     
     class func vote(song: String, party: String, userid: String, vote: Int) -> StatusMsg {
-        let query = "REPLACE INTO songs VALUES('\(party)','\(song)','\(userid)',\(vote));"
+        let query = "DELETE FROM songs WHERE party='\(party)' AND song='\(song)' AND account='\(userid)';"
+        let query2 = "INSERT INTO songs (party,song,account,vote) VALUES('\(party)','\(song)','\(userid)',\(vote));"
         let res = SQLInteract.ExecuteModification(query: query)
-        return res
+        let res2 = SQLInteract.ExecuteModification(query: query2)
+        return res2
     }
 }

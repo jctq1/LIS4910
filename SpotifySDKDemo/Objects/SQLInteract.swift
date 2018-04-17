@@ -58,6 +58,14 @@ public class SQLInteract{
                 let json = try JSONSerialization.jsonObject(with: value!) as! [[String:Any]]
                 ret = json
                 status = (true, "Everything is OK")
+                if let error = ret.first {
+                    if let error2 = error["error"]{
+                        let er = error2 as! [String : Any]
+                        print(er["code"] as! Int)
+                        print(er["description"] as! String)
+                    }
+                    
+                }
             } catch {
                 status = (false,String(describing: error)) /* If query failed */
             }

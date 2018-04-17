@@ -9,6 +9,7 @@
 import UIKit
 import SafariServices
 import AVFoundation
+import Spartan
 
 let redirectUrl = "myshuffle://callback" // put your redirect URL here
 let clientID = "91eacb7a43c74feb8891e5afa6373377" // put your client ID here
@@ -61,7 +62,16 @@ class MainViewController: GenericViewController, SPTAudioStreamingPlaybackDelega
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
             
             session = firstTimeSession
+            Spartan.authorizationToken = firstTimeSession.accessToken
             performSegue(withIdentifier: "normalsegue", sender: nil)
+            
+                if self.player == nil {
+                    self.player = SPTAudioStreamingController.sharedInstance()
+                    self.player!.playbackDelegate = self
+                    self.player!.delegate = self
+                    try! player?.start(withClientId: clientID)
+                    self.player!.login(withAccessToken: firstTimeSession.accessToken)
+                }
         }
         
     }

@@ -10,9 +10,17 @@ import UIKit
 import Spartan
 
 var referenceplayer : PlayerViewController? = nil
+var lastID = ""
+var dur = 0
 
 class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
 
+    
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var reloadButton: UIImageView!
     @IBOutlet weak var buttonPlay: UIButton!
     @IBOutlet weak var buttonVolume: UIButton!
     @IBOutlet weak var slider: UISlider!
@@ -22,7 +30,7 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
     var isowner = false
     var party : Party? = nil
     
-    override func viewWillDisappear(_ animated: Bool) {
+    /*override func viewWillDisappear(_ animated: Bool) {
         if let player = self.player{
             player.playbackDelegate = nil
             player.delegate = nil
@@ -32,7 +40,7 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
         }
         self.player = nil
         
-    }
+    }*/
     
     
     @IBAction func changePart(_ sender: Any) {
@@ -67,7 +75,6 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
     func fillData(_ party: Party, reload: Bool){
         let songs = Song.returnSongs(party: party)
         let URIformat = songs.map{$0.id}
-        Spartan.authorizationToken = session?.accessToken
         
         _ = Spartan.getTracks(ids: URIformat, market: .us, success: { (tracks) in
             sortedsongs?.songs.removeAll()
@@ -77,12 +84,15 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
                 let item = tracks[i]
                 let url = URL(string: item.album.images[1].url)
                 let image = UIImage(data: (NSData(contentsOf: url!)! as Data))
-                let votes = Song.getVotes(idparty: party.id, idsong: item.id as! String)
+                let votes = Song.getVotes(idparty: party.id, idsong: songs[i].id)
                 let duration = item.durationMs
-                let newcell = MusicPropierties(photo: image!, name: item.name, id: item.id as! String, votes: votes, duration: duration!,played: songs[i].played)
+                let name = item.name + " " + item.artists[0].name
+                let newcell = MusicPropierties(photo: image!, name: name, id: songs[i].id, votes: votes, duration: duration!,played: songs[i].played)
                 
                     prov += [newcell]
             }
+            
+            prov.sort{$0.votes < $1.votes}
             
             prov.sort(by: { (a, b) -> Bool in
                 if (a.played && !b.played){
@@ -99,6 +109,15 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
             sortedsongs?.songs = prov
             self.mysongs = prov
             
+            if let bool = self.player?.playbackState {
+                self.slider.setValue(Float(bool.position*1000), animated: true)
+                let song = self.mysongs.index{$0.id == lastID}
+                self.slider.maximumValue = Float(dur)
+                self.coverbig.image = self.mysongs[song!].photo
+                self.song.text = self.mysongs[song!].name
+            }
+            
+            
             if (reload){
                 self.reloadValues()
             }
@@ -110,19 +129,20 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
     
     @objc var player: SPTAudioStreamingController?
     
-    var lastID = ""
     
     public func changesong(id: String, duration: Int) {
         if (lastID == id){
             return
         }
         lastID = id
+        dur = duration
         self.player?.playSpotifyURI("spotify:track:\(id)", startingWith: 0, startingWithPosition: 0.0, callback: { (error) in
             if (error != nil) {
                 print("playing!")
             }
             
         })
+        Party.setPlayingSong(party: party!, song: id)
         self.player?.setIsPlaying(false, callback: nil)
         self.slider.maximumValue = Float(duration)
         self.slider.setValue(0.0, animated: true)
@@ -131,10 +151,7 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
     @objc func initializaPlayer(authSession:SPTSession){
         if self.player == nil {
             self.player = SPTAudioStreamingController.sharedInstance()
-            self.player!.playbackDelegate = self
-            self.player!.delegate = self
-            try! player?.start(withClientId: clientID)
-            self.player!.login(withAccessToken: authSession.accessToken)
+            self.player?.delegate = self
         }
     }
     
@@ -146,6 +163,8 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
         if mysongs.count > index!{
             changesong(id: mysongs[index!].id, duration: mysongs[index!].duration)
             player?.setIsPlaying(true, callback: nil)
+            self.coverbig.image = mysongs[index!].photo
+            self.song.text = mysongs[index!].name
         }
         else{
             self.player?.setIsPlaying(false, callback: nil)
@@ -160,10 +179,18 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
             }
             
         }
-        if (slider.maximumValue - slider.value < 700){
+        if (slider.maximumValue - slider.value < 1000){
             Song.played(song: lastID, party: (party?.id)!)
             fillData(party!,reload: true)
             
+        }
+    }
+    
+    @objc func checkNew(_ : Any) {
+        fillData(party!, reload: false)
+        if let newsong = Party.getPlayingSong(party: party!, songs: mysongs) {
+            self.coverbig.image = newsong.photo
+            self.song.text = newsong.name
         }
     }
     
@@ -172,22 +199,27 @@ class PlayerViewController: GenericViewController, SPTAudioStreamingPlaybackDele
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = 0
-        slider.maximumValue = 1000
+        slider.maximumValue = 100000000
         referenceplayer = self
         if let par = party{
             info.text = par.name
-            
+            fillData(par, reload: false)
             isowner = (par.creator == session?.canonicalUsername)
             if (isowner) {
                 info.text?.append(" by yourself")
+                initializaPlayer(authSession: session!)
+                self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.timerFired(_:)), userInfo: nil, repeats: true)
+                
             }
             else{
+                reloadButton.isHidden = true
                 info.text?.append(" by \(par.creator)")
+                buttonPlay.isHidden = true
+                buttonVolume.isHidden = true
+                slider.isHidden = true
+                self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.checkNew(_:)), userInfo: nil, repeats: true)
             }
-            initializaPlayer(authSession: session!)
-            self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.timerFired(_:)), userInfo: nil, repeats: true)
-            self.timer.tolerance = 0.1
-            fillData(par, reload: false)
+            
         }
         
         

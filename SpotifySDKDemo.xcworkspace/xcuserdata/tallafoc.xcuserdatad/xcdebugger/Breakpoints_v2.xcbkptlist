@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/Objects/Song.swift"
-            timestampString = "545169725.778934"
+            timestampString = "545636571.632804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/TableSongController.swift"
-            timestampString = "545116347.971701"
+            timestampString = "545636571.632899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/ShowSongViewController.swift"
-            timestampString = "545146455.903138"
+            timestampString = "545636571.632966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/ShowSongViewController.swift"
-            timestampString = "545146455.903231"
+            timestampString = "545636571.633032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.779213"
+            timestampString = "545636571.6331021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "PlayerViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
-            timestampString = "545169725.780197"
+            timestampString = "545636571.633671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
-            timestampString = "545169725.780364"
+            timestampString = "545636571.633738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.780502"
+            timestampString = "545636571.633796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "fillData(_:reload:)"
             landmarkType = "7">
             <Locations>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.781188"
+            timestampString = "545636571.634225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "playStop(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
-            timestampString = "545169725.781798"
+            timestampString = "545636571.634645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
-            timestampString = "545169725.781919"
+            timestampString = "545636571.634727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "SortedSongTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
-            timestampString = "545169725.782028"
+            timestampString = "545636571.634796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.782132"
+            timestampString = "545636571.634871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "timerFired(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.782874"
+            timestampString = "545636571.6354491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "changePart(_:)"
             landmarkType = "7">
             <Locations>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.783386"
+            timestampString = "545636571.635982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "fillData(_:reload:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.78376"
+            timestampString = "545636571.636564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "timerFired(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.784163"
+            timestampString = "545636571.637154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "timerFired(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -374,27 +374,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.784555"
+            timestampString = "545636571.637653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "reloadValues()"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SpotifySDKDemo.PlayerViewController.reloadValues() -&gt; ()"
                   moduleName = "SpotifySDKDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/PlayerViewController.swift"
-                  timestampString = "545169726.118493"
+                  timestampString = "545633142.590279"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "142"
@@ -402,14 +402,14 @@
                   offsetFromSymbolStart = "25">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (SpotifySDKDemo.MusicPropierties) -&gt; Swift.Bool in SpotifySDKDemo.PlayerViewController.reloadValues() -&gt; ()"
                   moduleName = "SpotifySDKDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/PlayerViewController.swift"
-                  timestampString = "545169726.123136"
+                  timestampString = "545633142.592976"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "142"
@@ -426,11 +426,459 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpotifySDKDemo/PlayerViewController.swift"
-            timestampString = "545169725.784916"
+            timestampString = "545636571.638136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "PlayerViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
+            timestampString = "545636571.638736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574300.4866101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "2554">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574300.488923"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "11632">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
+            timestampString = "545636571.638827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
+            timestampString = "545636571.6388969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574651.085182"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1060">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574651.087352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "11616">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SortedSongTableViewController.swift"
+            timestampString = "545636571.638968"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574653.091273"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "5131">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.SortedSongCell.touchesBegan(Swift.Set&lt;__ObjC.UITouch&gt;, with: Swift.Optional&lt;__ObjC.UIEvent&gt;) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/SortedSongTableViewController.swift"
+                  timestampString = "545574653.093259"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "11640">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SubscribedViewController.swift"
+            timestampString = "545578103.320938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "addparty(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/SubscribedViewController.swift"
+            timestampString = "545578103.321004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/Objects/Party.swift"
+            timestampString = "545627634.169034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "subscribeParty(id:user:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/Objects/Song.swift"
+            timestampString = "545636571.6392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "parseSongs(res:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/Objects/Song.swift"
+            timestampString = "545636571.63929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "vote(song:party:userid:vote:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/PlayerViewController.swift"
+            timestampString = "545636571.6393861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "fillData(_:reload:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/Objects/SQLInteract.swift"
+            timestampString = "545636571.639919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "ExecuteSelect(query:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/Objects/SQLInteract.swift"
+            timestampString = "545636571.639985"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "ExecuteSelect(query:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/PlayerViewController.swift"
+            timestampString = "545636571.6400419"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "timerFired(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/HomeGenericViewViewController.swift"
+            timestampString = "545636571.6404999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "setNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/HomeGenericViewViewController.swift"
+            timestampString = "545636571.640594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/HomeGenericViewViewController.swift"
+            timestampString = "545636571.640672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "setNews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/ShowSongViewController.swift"
+            timestampString = "545636571.640759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "playSong(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifySDKDemo.ShowSongViewController.playSong(Any) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/ShowSongViewController.swift"
+                  timestampString = "545633468.969277"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in SpotifySDKDemo.ShowSongViewController.playSong(Any) -&gt; ()"
+                  moduleName = "SpotifySDKDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tallafoc/Documents/LIS4910/SpotifySDKDemo/ShowSongViewController.swift"
+                  timestampString = "545633468.973189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/ShowSongViewController.swift"
+            timestampString = "545636571.6408401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "initializaPlayer(authSession:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/PlayerViewController.swift"
+            timestampString = "545636571.6409431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "timerFired(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifySDKDemo/PlayerViewController.swift"
+            timestampString = "545636571.641444"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "timerFired(_:)"
             landmarkType = "7">
          </BreakpointContent>

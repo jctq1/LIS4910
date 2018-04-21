@@ -319,7 +319,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelParty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxH-eJ-NHB">
-                                            <rect key="frame" x="119" y="81" width="208" height="21"/>
+                                            <rect key="frame" x="151" y="81" width="208" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="208" id="Mea-sg-ZKd"/>
                                             </constraints>
@@ -598,7 +598,7 @@
                                                 <constraint firstAttribute="height" constant="87" id="jzY-vh-7X6"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xc-pi-Xvu">
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xc-pi-Xvu">
                                             <rect key="frame" x="272" y="5" width="49" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="usZ-YY-MZK"/>
